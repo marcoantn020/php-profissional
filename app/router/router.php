@@ -68,8 +68,7 @@ function router ()
     }
 
     if(!empty($matchedUri)) {
-        controller($matchedUri, $params);
-        return;
+        return controller($matchedUri, $params);
     }
 
     throw new \RuntimeException("Algo deu errado.");

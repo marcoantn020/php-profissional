@@ -15,5 +15,5 @@ function controller($matchedUri, $params)
         throw new \RuntimeException("O metodo {$method} não existe no controller {$controller}.");
     }
 
-    $controllerInstance->$method($params);
+    return $controllerInstance->$method($params);
 }
