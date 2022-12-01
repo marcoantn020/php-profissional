@@ -6,9 +6,10 @@ class Home
 {
     public function index($params)
     {
+        $users = all("users");
         return [
             "view" => "home.php",
-            "data" => ["name" => "Marco Antonio", "idade" => 30]
+            "data" => ["users" => $users, "title" => "Home"]
         ];
     }
 }

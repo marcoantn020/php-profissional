@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXISTS `myapp`;
+USE myapp;
+
+CREATE TABLE IF NOT EXISTS  `myapp`.`users` (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    firstName VARCHAR(255),
+    lastName VARCHAR(255),
+    email VARCHAR(255),
+    username VARCHAR(200),
+    password VARCHAR(200),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=INNODB;

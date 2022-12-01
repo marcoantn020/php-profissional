@@ -5,16 +5,16 @@ services:
 
     mysql:
         image: 'mysql:5.6'
+        container_name: 'mysql-my-app'
         working_dir: /app
         volumes:
-            - '.:/app'
+            - ./init:/docker-entrypoint-initdb.d
+            - ./init/mysql:/var/lib/mysql
         environment:
-            - MYSQL_ROOT_PASSWORD=secret
+            - MYSQL_ROOT_PASSWORD=root
             - MYSQL_DATABASE=myapp
-            - MYSQL_USER=root
-            - MYSQL_PASSWORD=secret
         ports:
-            - '5002:3306'
+            - '3306:3306'
 
     clickhouse:
         image: 'yandex/clickhouse-server:latest'

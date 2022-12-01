@@ -58,17 +58,16 @@ function router ()
     $matchedUri = exactMatchUriInArrayRoutes($uri, $routes);
 
     $params = [];
+    $paramsData = [];
     if(empty($matchedUri)) {
         $matchedUri = regularExpressionMatchArrayRoutes($routes, $uri);
         $uri = explode("/", ltrim($uri, "/"));
         $params = params($matchedUri, $uri);
         $paramsData = formatParamsData($uri, $params);
-
-
     }
 
     if(!empty($matchedUri)) {
-        return controller($matchedUri, $params);
+        return controller($matchedUri, $paramsData);
     }
 
     throw new \RuntimeException("Algo deu errado.");
