@@ -37,6 +37,15 @@ function params($matchedUriExpressionMatch, $uri)
     return [];
 }
 
+function formatParamsData($uri, $params)
+{
+    $uri = explode("/", ltrim($uri, "/"));
+    $paramsData = [];
+    foreach ($params as $index => $param) {
+        $paramsData[$uri[$index - 1]] = $param;
+    }
+    return $paramsData;
+}
 
 function router ()
 {
@@ -49,12 +58,14 @@ function router ()
     $matchedUriExpressionMatch = regularExpressionMatchArrayRoutes($routes, $uri);
 
     $params = params($matchedUriExpressionMatch, $uri);
-    var_dump($params);
-    die();
 
-    var_dump($matchedUri);
+    $paramsData = formatParamsData($uri, $params);
+
+    var_dump($paramsData);
     die();
 }
+
+
 
 
 
