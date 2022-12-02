@@ -1,11 +1,10 @@
 <?php
 
 function user() {
-    if(isset($_SESSION[LOGGED])) {
-        return $_SESSION[LOGGED];
-    }
+    return $_SESSION[LOGGED] ?? null;
 }
 
-function logged() {
+function logged(): bool
+{
     return isset($_SESSION[LOGGED]);
 }

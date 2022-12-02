@@ -25,16 +25,19 @@ class User
 
     public function store()
     {
-        $validate = validate(['lastName' => 'required',
-            'firstName' => 'required',
-            'username' => 'required|unique',
-            'email' => 'required|email',
-            'password' => 'required|maxlen']);
+        $validate = validate([
+            'firstName' => 'required|minlength:3',
+            'lastName' => 'required',
+            'username' => 'required|unique:users',
+            'email' => 'email|unique:users',
+            'password' => 'required|minlength:5'
+        ]);
 
         if(!$validate) {
             redirect("/user/create");
         }
-
+        echo "<pre>";
+        print_r($validate);
     }
 
 }

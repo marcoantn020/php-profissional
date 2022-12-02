@@ -2,7 +2,7 @@
 
 function controller($matchedUri, $params)
 {
-    list($controller, $method) = explode("@",array_values($matchedUri)[0]);
+    [$controller, $method] = explode("@", array_values($matchedUri)[0]);
 
     $controllerWithNamespace = CONTROLLER_PATH . $controller;
     if(!class_exists($controllerWithNamespace)) {
@@ -15,7 +15,11 @@ function controller($matchedUri, $params)
         throw new \RuntimeException("O metodo {$method} não existe no controller {$controller}.");
     }
 
-     $controller = $controllerInstance->$method($params);
+    if(empty($params)) {
+        $controller = $controllerInstance->$method();
+    } else {
+        $controller = $controllerInstance->$method($params);
+    }
 
     if($_SERVER["REQUEST_METHOD"] === 'POST') {
         die();

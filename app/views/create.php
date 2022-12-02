@@ -8,7 +8,7 @@
 
     <label for="">
         <input type="text" name="lastName" placeholder="Seu ultimo nome ...">
-        <?php echo getFlash("lastName")?>
+        <?php echo getFlash("lastName"); ?>
     </label>
 
     <label for="">
@@ -22,7 +22,7 @@
     </label>
 
     <label for="">
-        <input type="password" name="password" placeholder="Sua senha">
+        <input type="password" name="password" placeholder="Sua senha ...">
         <?php echo getFlash("password")?>
     </label>
 
