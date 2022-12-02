@@ -19,10 +19,22 @@ body {
     text-align: center;
 }
 
+form#form-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+form#form-login label {
+    margin-bottom: 10px;
+}
+
 .button-green {
+    margin: 0 auto;
     background: green;
     border: none;
     color: white;
+    width: 180px;
 }
 
 #header {

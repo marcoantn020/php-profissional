@@ -1,4 +1,5 @@
 <?php
 
-define("CONTROLLER_PATH", "app\\controllers\\");
-define("VIEWS", "../app/views/");
+const CONTROLLER_PATH = "app\\controllers\\";
+const VIEWS = "../app/views/";
+const LOGGED = "logged";
