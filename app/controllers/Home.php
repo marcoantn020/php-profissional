@@ -4,7 +4,7 @@ namespace app\controllers;
 
 class Home
 {
-    public function index($params)
+    public function index()
     {
         $users = all("users");
         return [

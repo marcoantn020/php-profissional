@@ -4,7 +4,7 @@ namespace app\controllers;
 
 class Login
 {
-    public function index($params)
+    public function index()
     {
         return [
             "view" => "login.php",
@@ -12,7 +12,7 @@ class Login
         ];
     }
 
-    public function store($params)
+    public function store()
     {
         $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
         $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
@@ -29,8 +29,7 @@ class Login
             return;
         }
 
-//        if(!password_verify($password, $user->password)) {
-        if($user->password != $password) {
+        if(!password_verify($password, $user->password)) {
             setMessageAndRedirect("message", "Usuario e/ou senha inválidos.", "/login");
             return;
         }

@@ -36,8 +36,16 @@ class User
         if(!$validate) {
             redirect("/user/create");
         }
-        echo "<pre>";
-        print_r($validate);
+
+        $validate["password"] = password_hash($validate["password"], PASSWORD_DEFAULT);
+        $created = create("users", $validate);
+
+        if(!$created) {
+            setMessageAndRedirect("message",
+                "Erro ao cadastrar, tente novamente em alguns segundos.",
+                "/user/create");
+        }
+        redirect("/");
     }
 
 }
