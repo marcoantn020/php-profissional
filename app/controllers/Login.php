@@ -44,4 +44,5 @@ class Login
         unset($_SESSION[LOGGED]);
         redirect("/login");
     }
+
 }

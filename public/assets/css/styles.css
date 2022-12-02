@@ -12,7 +12,7 @@ body {
 
 #box-login {
     margin: 0 auto;
-    background: tomato;
+    background: gray;
     padding: 5px;
     width: 400px;
     color: white;
@@ -70,3 +70,23 @@ ul#users-home li {
     margin-bottom: 3px;
 }
 
+/*---------------------------------------------------*/
+
+form#form-create {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form#form-create label {
+    margin-bottom: 10px;
+    width: 90%;
+}
+
+form#form-create input {
+    width: 100%;
+    height: 30px;
+    border-radius: 2px;
+    border: 1px solid #efefef;
+}
